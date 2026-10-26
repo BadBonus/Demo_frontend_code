@@ -1,0 +1,143 @@
+@utility sketchy-border {
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+}
+
+@utility sketchy-border-2 {
+  border-radius: 30px 236px 70px 265px/263px 19px 208px 43px;
+}
+
+@utility sketchy-border-3 {
+  border-radius: 60px 236px 40px 265px/263px 79px 208px 0;
+}
+
+@utility sketchy-border-4 {
+  border-radius: 74px 160px 85px 250px/220px 57px 156px 64px;
+}
+
+@utility sketchy-border-5 {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+@utility sketchy-border-6 {
+  border-radius: 245px 110px 225px 45px/45px 215px 45px 255px;
+}
+
+@utility paper-pattern {
+  background: var(--color-white);
+  border: 4px solid black;
+  box-shadow: 0 0 12px 2px black;
+}
+
+@utility absCenter {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+@utility shadow-element {
+  box-shadow: var(--shadow-box-elements);
+}
+
+/*
+ * Editable-media hover chrome (overlay + pencil mask).
+ * Pattern, not an atomic token — candidate for future EditableMedia component;
+ * do not add more @utility of this kind.
+ */
+@utility canEditWrapper {
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgb(0 0 0 / 50%);
+    transition: opacity 0.3s;
+    opacity: 0;
+  }
+
+  &::after {
+    content: '';
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    margin: auto;
+    inset: 0;
+    background-color: var(--color-neutral-light);
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15t.775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z'/%3E%3C/svg%3E");
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    &::after,
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@utility list-random-rotate {
+  & > * {
+    transform: rotate(var(--rot, 0deg));
+    transition: transform 0.2s;
+  }
+
+  & > *:nth-child(7n + 1) {
+    --rot: -0.8deg;
+  }
+  & > *:nth-child(7n + 2) {
+    --rot: 0.4deg;
+  }
+  & > *:nth-child(7n + 3) {
+    --rot: -0.6deg;
+  }
+  & > *:nth-child(7n + 4) {
+    --rot: 1deg;
+  }
+  & > *:nth-child(7n + 5) {
+    --rot: -0.2deg;
+  }
+  & > *:nth-child(7n + 6) {
+    --rot: 0.9deg;
+  }
+  & > *:nth-child(7n + 7) {
+    --rot: -1deg;
+  }
+
+  &.-hover-straighten > *:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+}
+
+@utility notebook-paper {
+  --paper: #fdfcf7;
+  --line: #a9c4e0;
+  --margin: #e0566a;
+  --step: 28px;
+
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent 56px, var(--margin) 56px 58px, transparent 58px),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 calc(var(--step) - 1px),
+      var(--line) calc(var(--step) - 1px) var(--step)
+    );
+
+  background-size:
+    100% 100%,
+    100% var(--step);
+  background-position:
+    0 0,
+    0 0;
+}

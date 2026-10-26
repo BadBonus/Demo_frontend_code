@@ -1,0 +1,9 @@
+export enum ESocLinks {
+  VK = 'VK',
+  TELEGRAM = 'TELEGRAM',
+  DISCORD = 'DISCORD',
+  INSTAGRAM = 'INSTAGRAM',
+  REDDIT = 'REDDIT',
+  YOUTUBE = 'YOUTUBE',
+  THREADS = 'THREADS',
+}

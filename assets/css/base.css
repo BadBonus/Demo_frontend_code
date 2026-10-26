@@ -1,0 +1,39 @@
+/* Максимально глобальные стили на весь проект */
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  .ui-drawer,
+  .ui-popover,
+  .ui-drawer *,
+  .ui-popover * {
+    font-family: inherit;
+  }
+
+  @apply scheme-light dark:scheme-dark;
+
+  :where(:disabled, [disabled], [aria-disabled='true'], .disabled) {
+    opacity: 0.2;
+    cursor: not-allowed;
+    user-select: none;
+    box-shadow: none;
+    outline: none;
+    filter: grayscale(30%);
+  }
+
+  :where(a, [role='button']):where([aria-disabled='true'], .disabled) {
+    pointer-events: none;
+  }
+}

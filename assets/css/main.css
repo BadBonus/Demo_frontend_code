@@ -1,0 +1,11 @@
+@layer theme, base, frameworks, components, utilities, overrides;
+
+@import '@nuxt/ui';
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './base.css';
+@import './theme.css';
+@import './frameworks.css';
+@import './components.css';
+@import './utilities.css';
+@import './overrides.css';

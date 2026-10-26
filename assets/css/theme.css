@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+/* @theme — директива Tailwind, не путать с @layer theme */
+
+@theme {
+  /*
+   * Nuxt UI semantic colors.
+   * primary = white surfaces (UAvatar, UButton primary, share CTAs) — not ink.
+   * Ink/text uses --color-text / neutral-dark, not primary.
+   */
+  --ui-primary: white;
+  --ui-text: white;
+  --ui-error: rgb(220, 53, 69);
+  --ui-warning: rgb(237, 152, 0);
+  --ui-success: rgb(40, 167, 69);
+  --ui-info: hsl(199.38deg 100% 50%);
+  --ui-secondary: #522626;
+  --ui-card-decorate: #dce6e5;
+}
+
+@theme static {
+  /* fonts — static, чтобы @nuxt/fonts видел семейства без utility-классов */
+  --font-sans: 'Rubik', 'Shantell Sans', sans-serif;
+  --font-main: 'Rubik', 'Shantell Sans', sans-serif;
+  --font-secondary: 'Caveat', cursive;
+  --font-decorate: 'Artist Nouveau', serif;
+  --font-decorate-2: 'Rubik Doodle Shadow', sans-serif;
+  --font-script: 'Segoe Script', 'Caveat', cursive;
+
+  /* --- role: Nuxt UI ↔ Tailwind bridge --- */
+  --color-background: var(--ui-bg);
+  --color-foreground: var(--ui-text);
+  --color-card-decorate: var(--ui-card-decorate);
+
+  --color-card: var(--ui-bg-elevated);
+  --color-card-foreground: var(--ui-text);
+
+  --color-popover: var(--ui-bg-elevated);
+  --color-popover-foreground: var(--ui-text);
+
+  --color-muted: var(--ui-bg-muted);
+  --color-muted-foreground: var(--ui-text-muted);
+
+  --color-accent: var(--ui-bg-accented);
+  --color-accent-foreground: var(--ui-text);
+
+  --color-border: var(--ui-border);
+  --color-input: var(--ui-border);
+
+  --color-primary: var(--ui-primary);
+  --color-primary-foreground: var(--ui-text-inverted);
+
+  --color-secondary: var(--ui-secondary);
+  --color-secondary-foreground: var(--ui-text-inverted);
+
+  --color-destructive: var(--ui-error);
+  --color-destructive-foreground: var(--ui-text-inverted);
+
+  --color-ring: var(--ui-primary);
+
+  --radius: var(--ui-radius);
+
+  /* --- role: brand / ink / surface (legacy consumers) --- */
+  --color-neutral-dark: oklch(0.24 0.07 40.96);
+  --color-neutral-light: oklch(0.9 0.02 60);
+  --color-white: oklch(0.9803 0.0054 117.92);
+  --color-brown: oklch(0.44 0.13 40.14);
+  --color-dark-brown: oklch(0.3215 0.0714 51.76);
+  --color-brown-hover: oklch(0.5875 0.0833 55.39);
+  --color-bg-secondary: oklch(0.3126 0.014 211.12 / 70%);
+
+  /* ink: --color-text is canonical; *-primary / *-secondary are aliases */
+  --color-text: var(--color-neutral-dark);
+  --color-text-primary: var(--color-text);
+  --color-text-secondary: var(--color-brown);
+  --color-text-inverted: var(--color-white);
+  --color-elements-surface: var(--color-white);
+
+  --shadow-box-elements: 2px 2px 2px oklch(0.1504 0.0251 124.13 / 30%);
+}
+
+/* --- role: event domain (card / detail screens) --- */
+@theme static {
+  --color-event-bg-dark: #1a100e;
+  --color-event-text-main: #000000;
+  --color-event-accent-red: #a31d21;
+  --color-event-orange: #e8b84a;
+  --color-event-cost: #f5d76e;
+}

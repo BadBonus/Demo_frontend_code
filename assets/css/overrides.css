@@ -1,0 +1,60 @@
+/* Слой поверх остальных: точечные патчи Nuxt UI, которые нельзя выразить в app.config */
+
+@layer overrides {
+  .focus-visible\:outline-3:focus-visible {
+    outline-color: var(--ui-info);
+  }
+
+  .dark button {
+    &:is(.bg-warning, .bg-error, .bg-info, .bg-secondary, .bg-success) {
+      --ui-text-inverted: white;
+    }
+  }
+
+  .dark button.bg-warning:not(:hover) {
+    background-color: var(--ui-warning);
+  }
+
+  /*
+   * UAvatar default color=neutral → bg-elevated (тёмный в dark).
+   * Принудительно светлая подложка fallback-инициалов (как до рефактора).
+   */
+  span[data-slot='root']:has(> [data-slot='fallback']),
+  span[data-slot='root']:has(> [data-slot='icon']) {
+    background-color: white;
+  }
+
+  span[data-slot='root'] > [data-slot='fallback'] {
+    color: var(--color-neutral-950, #0a0a0a);
+    text-transform: uppercase;
+  }
+
+  /*
+   * Nuxt UI solid buttons use hover/active:bg-{color}/75.
+   * Soften mix toward white (60%) — not expressible via app.config slots alone.
+   */
+  .hover\:bg-secondary\/75:hover,
+  .active\:bg-secondary\/75:active {
+    background-color: color-mix(in srgb, var(--ui-secondary) 60%, white);
+  }
+
+  .hover\:bg-success\/75:hover,
+  .active\:bg-success\/75:active {
+    background-color: color-mix(in srgb, var(--ui-success) 60%, white);
+  }
+
+  .hover\:bg-info\/75:hover,
+  .active\:bg-info\/75:active {
+    background-color: color-mix(in srgb, var(--ui-info) 60%, white);
+  }
+
+  .hover\:bg-warning\/75:hover,
+  .active\:bg-warning\/75:active {
+    background-color: color-mix(in srgb, var(--ui-warning) 60%, white);
+  }
+
+  .hover\:bg-error\/75:hover,
+  .active\:bg-error\/75:active {
+    background-color: color-mix(in srgb, var(--ui-error) 60%, white);
+  }
+}

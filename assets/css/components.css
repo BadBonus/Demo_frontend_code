@@ -1,0 +1,68 @@
+@layer components {
+  .divider {
+    width: 1px;
+    background: var(--color-text);
+  }
+
+  /* Sanitized HTML from event material notes (TipTap / server) */
+  .material-note-body {
+    color: var(--color-event-text-main);
+
+    p {
+      margin: 0 0 0.5rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 0.5rem;
+      padding-left: 1.25rem;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    li {
+      margin: 0.15rem 0;
+    }
+
+    a {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    strong {
+      font-weight: 800;
+    }
+
+    blockquote {
+      margin: 0.5rem 0;
+      border-left: 3px solid var(--color-event-text-main);
+      padding-left: 0.75rem;
+      opacity: 0.85;
+    }
+
+    code {
+      border: 1px solid var(--color-event-text-main);
+      background: color-mix(in srgb, var(--color-white) 45%, transparent);
+      padding: 0.1rem 0.3rem;
+      font-size: 0.85em;
+    }
+
+    img,
+    picture,
+    video,
+    iframe {
+      display: none !important;
+    }
+  }
+}
